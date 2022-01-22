@@ -5,6 +5,12 @@ import com.employee.controller.EmployeeController;
 import com.employee.model.Employee;
 import com.employee.view.EmployeeInformation;
 
+/**
+* The simple Employee Management program using CRUD operation performs 
+* functions like create new employee detail, viewing the list of employee registered, 
+* replacing old data with new data and deleting whole employee data with employee id. 
+*/
+
 public class EmployeeMain {
 	public static final Scanner SCANNER = new Scanner(System.in);
 	private static final EmployeeController EMPLOYEE_CONTROL = new EmployeeController();
