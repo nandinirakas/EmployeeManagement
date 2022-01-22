@@ -22,7 +22,6 @@ public class EmployeeMain {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
 		int choice;
 
 		do {
@@ -84,6 +83,7 @@ public class EmployeeMain {
 	 */
 	public static void updateEmployeeDetails() {
 		int choice;
+		
 		System.out.println("Choose option to update\n1.Update all details\n2.Employee Name\n3.Employee Salary\n"
 				+ "4.Employee Phone Number\n5.Employee Joining Date");
 		choice = EmployeeMain.SCANNER.nextInt();
