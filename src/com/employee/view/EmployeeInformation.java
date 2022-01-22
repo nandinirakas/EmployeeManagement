@@ -4,9 +4,10 @@ import com.employee.main.EmployeeMain;
 import com.employee.service.EmployeeManagementValidation;
 
 public class EmployeeInformation {
+
 	public static int employeeId() {
 		System.out.println("Enter employee Id:");
-		return EmployeeManagementValidation.employeeIdValidation(EmployeeMain.SCANNER.nextInt());
+		return EmployeeManagementValidation.employeeIdValidation(EmployeeMain.SCANNER.next());
 	}
 
 	public static String employeeName() {
@@ -16,7 +17,7 @@ public class EmployeeInformation {
 
 	public static long employeeSalary() {
 		System.out.println("Enter employee salary:");
-		return EmployeeMain.SCANNER.nextInt();
+		return EmployeeManagementValidation.employeeSalaryValidation(EmployeeMain.SCANNER.next());
 	}
 
 	public static String employeePhoneNumber() {
