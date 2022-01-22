@@ -39,6 +39,7 @@ public class EmployeeManagementValidation {
 	public static String dateValidation(String date) {
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		dateFormat.setLenient(false);
+		
 		try {
 			dateFormat.parse(date);
 			dateFormat.setLenient(true);
