@@ -79,24 +79,28 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 			Employee employeeData = EMPLOYEE_DETAILS.get(employeeIdKey);
 
 			if (employeeIdKey == employeeId) {
-
+				
+				/**
+				 * In first if condition, except name all datas are kept as null. So that when name is entered in object it get 
+				 * satisfied enter into the loop. The same operation is done for all inputs.
+				 */
 				if ((employee.getSalary() == 0) && (employee.getPhoneNumber() == null)
-						&& (employee.getDate() == null)) { // update name
+						&& (employee.getDate() == null)) { 
 					employeeData.setEmployeeName(employee.getEmployeeName());
 					employeeIdFound = true;
 					break;
 				} else if ((employee.getPhoneNumber() == null) && (employee.getEmployeeName() == null)
-						&& (employee.getDate() == null)) { // update salary
+						&& (employee.getDate() == null)) {
 					employeeData.setSalary(employee.getSalary());
 					employeeIdFound = true;
 					break;
 				} else if ((employee.getSalary() == 0) && (employee.getEmployeeName() == null)
-						&& (employee.getDate() == null)) { // update phone number
+						&& (employee.getDate() == null)) {
 					employeeData.setPhoneNumber(employee.getPhoneNumber());
 					employeeIdFound = true;
 					break;
 				} else if ((employee.getSalary() == 0) && (employee.getEmployeeName() == null)
-						&& (employee.getPhoneNumber() == null)) { // update date
+						&& (employee.getPhoneNumber() == null)) {
 					employeeData.setDate(employee.getDate());
 					employeeIdFound = true;
 					break;
