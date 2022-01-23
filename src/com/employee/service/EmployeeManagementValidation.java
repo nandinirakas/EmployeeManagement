@@ -17,7 +17,7 @@ public class EmployeeManagementValidation {
 	 * Validating employee id by accepting only numbers. If any character is given
 	 * as input the method is called again to get desired input.
 	 * 
-	 * @return String to integer id
+	 * @return String to integer value of id
 	 */
 	public static int employeeIdValidation(String employeeId) {
 
@@ -65,18 +65,24 @@ public class EmployeeManagementValidation {
 	/**
 	 * Validating employee joining date by checking day, month, year of default
 	 * calendar method. If any input other than predefined values are given, then
-	 * the method is called again to get desired input.
+	 * the method is called again to get desired input. By making setLeninent() to false
+	 * it will check whether the given date is correct by strict rules like leap year, having wrong date etc.
 	 * 
 	 * @return date
+	 * @exception For parsing date
 	 */
 	public static Date dateValidation(String joiningDate) {
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		dateFormat.setLenient(false);
 		Date date;
 
+		/**
+		 * Parses the given joining date and save it in temporary variable named date.
+		 * If any error present in try block, then it will come to catch and here the method for getting joining date
+		 * of employee from user is called again.
+		 */
 		try {
 			date = dateFormat.parse(joiningDate);
-			dateFormat.setLenient(true);
 		} catch (Exception exception) {
 			System.out.println("Please enter valid date");
 			return EmployeeInformation.employeeJoiningDate();

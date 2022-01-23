@@ -18,7 +18,7 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 	 * jointly stored in an object named employee.
 	 * 
 	 * @param employeeId 
-	 * @param employee Object
+	 * @param employee Object contains name, salary, phone number and date
 	 */
 	public void addNewEmployee(int employeeId, Employee employee) {
 		EMPLOYEE_DETAILS.put(employeeId, employee);
@@ -69,6 +69,7 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 	 * values at a time based on employee id.
 	 * 
 	 * @param employeeId
+	 * @param employee
 	 */
 	public void updateEmployee(int employeeId, Employee employee) {
 		boolean employeeIdFound = false;
