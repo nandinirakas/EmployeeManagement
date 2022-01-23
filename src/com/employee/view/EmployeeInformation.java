@@ -5,7 +5,7 @@ import com.employee.main.EmployeeMain;
 import com.employee.service.EmployeeManagementValidation;
 
 /**
- * This class is for getting inputs from users using scanners. The input data
+ * Get inputs from users using scanners. The input data
  * received from user is then send to employee management validation class and
  * checked for validation. And after satisfying those validation conditions, the
  * data will be returned.

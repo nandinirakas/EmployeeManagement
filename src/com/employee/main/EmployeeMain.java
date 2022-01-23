@@ -49,7 +49,7 @@ public class EmployeeMain {
 	}
 
 	/**
-	 * Method for adding employee details by getting data from EmployeeInformation class of view package. 
+	 * Adding employee details by getting data from EmployeeInformation class of view package. 
 	 * And stored employee name, salary, phone number and joining date in an object named employee.
 	 */
 	private static void addNewEmployee() {
@@ -64,14 +64,14 @@ public class EmployeeMain {
 	}
 
 	/**
-	 * Method for showing all employee details.
+	 * Showing all employee details.
 	 */
 	private static void viewEmployees() {
 		EMPLOYEE_CONTROL.viewEmployees();
 	}
 
 	/**
-	 * Method for deleting employee detail by using id.
+	 * Deleting employee detail by using id.
 	 */
 	private static void deleteEmployee() {
 		int employeeId = EmployeeInformation.employeeId();

@@ -6,14 +6,14 @@ import java.util.Map.Entry;
 import com.employee.model.Employee;
 
 /**
- * This class is for implementation of the methods that are given in interface.
+ * Implementation of the methods that are given in interface.
  * Created a linked hashmap collection for storing details for storing in order and better performance.
  */
 public class EmployeeMangementImpl implements EmployeeManagement {
 	private final LinkedHashMap<Integer, Employee> EMPLOYEE_DETAILS = new LinkedHashMap<Integer, Employee>();
 
 	/**
-	 * This method is for adding a new employee. Here employee id is set to key and
+	 * Adding a new employee. Here employee id is set to key and
 	 * other details like employee name, salary, phone number and joining date are
 	 * jointly stored in an object named employee.
 	 * 
@@ -25,7 +25,7 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 	}
 
 	/**
-	 * This method is for showing all employee details that are stored in the list by using iterator.
+	 * Showing all employee details that are stored in the list by using iterator.
 	 * Entry will give both key and value.
 	 */
 	public void viewEmployees() {
@@ -38,7 +38,7 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 	}
 
 	/**
-	 * This method is for deleting each employee details that are stored in the list
+	 * Deleting each employee details that are stored in the list
 	 * based on employee id.
 	 * 
 	 * @param employeeId
@@ -65,7 +65,7 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 	}
 
 	/**
-	 * This method is for replacing each employee details and also for replacing all
+	 * Replacing each employee details and also for replacing all
 	 * values at a time based on employee id.
 	 * 
 	 * @param employeeId

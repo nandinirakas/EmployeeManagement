@@ -5,7 +5,7 @@ import com.employee.service.EmployeeManagement;
 import com.employee.service.EmployeeMangementImpl;
 
 /**
- * This class is for getting request from main and giving response to service.
+ * Getting request from main and giving response to service.
  * The datas got in view are processed and called in employee main class methods.
  */
 public class EmployeeController {

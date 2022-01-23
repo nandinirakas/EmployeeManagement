@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import com.employee.view.EmployeeInformation;
 
 /**
- * This class is for validating details that are received from user. 
+ * Validating details that are received from user. 
  * After validation, if it satisfy the condition the data will be returned otherwise
  * the same methods will be called to get another valid data.
  */
