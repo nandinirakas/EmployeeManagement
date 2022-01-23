@@ -82,7 +82,7 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 				
 				/**
 				 * In first if condition, except name all datas are kept as null. So that when name is entered in object it get 
-				 * satisfied enter into the loop. The same operation is done for all inputs.
+				 * satisfied and enter into the loop. The same operation is done for all else if and else conditions.
 				 */
 				if ((employee.getSalary() == 0) && (employee.getPhoneNumber() == null)
 						&& (employee.getDate() == null)) { 
