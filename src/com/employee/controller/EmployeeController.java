@@ -4,10 +4,6 @@ import com.employee.model.Employee;
 import com.employee.service.EmployeeManagement;
 import com.employee.service.EmployeeMangementImpl;
 
-/**
- * Getting request from main and giving response to service.
- * The datas got in view are processed and called in employee main class methods.
- */
 public class EmployeeController {
 	private final EmployeeManagement EMPLOYEE_SERVICE = new EmployeeMangementImpl();
 

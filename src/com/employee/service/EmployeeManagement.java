@@ -1,18 +1,16 @@
 package com.employee.service;
 
 import com.employee.model.Employee;
-
 /**
- * This interface gives knowledge about the different method implementations in this project.
- * It supports functions like adding new employees, showing all employees, deleting and updating details.
- * These methods are implemented in EmployeeMangementImpl class.
+ * Used to achieve abstraction and multiple inheritance.
+ * Interfaces can have abstract methods and variables.
  */
 public interface EmployeeManagement {
-	public void addNewEmployee(int employeeId, Employee employee);
+	void addNewEmployee(int employeeId, Employee employee);
 
-	public void viewEmployees();
+	void viewEmployees();
 
-	public void deleteEmployee(int employeeId);
+	void deleteEmployee(int employeeId);
 
-	public void updateEmployee(int employeeId, Employee employee);
+	void updateEmployee(int employeeId, Employee employee);
 }

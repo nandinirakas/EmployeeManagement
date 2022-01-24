@@ -1,5 +1,6 @@
 package com.employee.main;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.Scanner;
 import com.employee.controller.EmployeeController;
@@ -21,6 +22,7 @@ public class EmployeeMain {
 	 * 2 for viewing all employee details, 3 for deleting an employee detail using id, 4 for updating details.
 	 * 
 	 * @param args
+	 * @throws ParseException 
 	 */
 	public static void main(String[] args) {
 		int choice;
@@ -49,8 +51,9 @@ public class EmployeeMain {
 	}
 
 	/**
-	 * Adding employee details by getting data from EmployeeInformation class of view package. 
+	 * Adding employee details by getting data from user. 
 	 * And stored employee name, salary, phone number and joining date in an object named employee.
+	 * @throws ParseException 
 	 */
 	private static void addNewEmployee() {
 		int employeeId = EmployeeInformation.employeeId();
@@ -59,7 +62,7 @@ public class EmployeeMain {
 		String phoneNumber = EmployeeInformation.employeePhoneNumber();
 		Date date = EmployeeInformation.employeeJoiningDate();
 
-		Employee employee = new Employee(employeeName, salary, phoneNumber, date);
+		Employee employee = new Employee(employeeId, employeeName, salary, phoneNumber, date);
 		EMPLOYEE_CONTROL.addNewEmployee(employeeId, employee);
 	}
 
@@ -81,42 +84,25 @@ public class EmployeeMain {
 
 	/**
 	 * Updating various employee details using switch case for specific input given by user.
+	 * @throws ParseException 
 	 */
 	public static void updateEmployeeDetails() {
 		int choice;
 		
-		System.out.println("Choose option to update\n1.Update all details\n2.Employee Name\n3.Employee Salary\n"
-				+ "4.Employee Phone Number\n5.Employee Joining Date");
+		System.out.println("Choose option to update\n1.Employee Name\n2.Employee Salary\n3.Employee Phone Number\n4.Employee Joining Date");
 		choice = EmployeeMain.SCANNER.nextInt();
 
 		if (choice == 1) {
-			EmployeeMain.updateEmployee();
-		} else if (choice == 2) {
 			EmployeeMain.updateEmployeeName();
-		} else if (choice == 3) {
+		} else if (choice == 2) {
 			EmployeeMain.updateEmployeeSalary();
-		} else if (choice == 4) {
+		} else if (choice == 3) {
 			EmployeeMain.updateEmployeePhoneNumber();
-		} else if (choice == 5) {
+		} else if (choice == 4) {
 			EmployeeMain.updateEmployeeJoiningDate();
 		} else {
 			System.out.println("Invalid choice");
 		}
-	}
-
-	/**
-	 * Updating employee details by getting data from EmployeeInformation class of view package.
-	 * And stored employee name, salary, phone number and date in an object named employee.
-	 */
-	private static void updateEmployee() {
-		int employeeId = EmployeeInformation.employeeId();
-		String employeeName = EmployeeInformation.employeeName();
-		long salary = EmployeeInformation.employeeSalary();
-		String phoneNumber = EmployeeInformation.employeePhoneNumber();
-		Date date = EmployeeInformation.employeeJoiningDate();
-		Employee employee = new Employee(employeeName, salary, phoneNumber, date);
-		
-		EMPLOYEE_CONTROL.updateEmployee(employeeId, employee);
 	}
 
 	/**
@@ -127,6 +113,7 @@ public class EmployeeMain {
 		String employeeName = EmployeeInformation.employeeName();
 		Employee employee = new Employee();
 		
+		employee.setEmployeeId(employeeId);
 		employee.setEmployeeName(employeeName);
 		EMPLOYEE_CONTROL.updateEmployee(employeeId, employee);
 	}
@@ -139,6 +126,7 @@ public class EmployeeMain {
 		long salary = EmployeeInformation.employeeSalary();
 		Employee employee = new Employee();
 		
+		employee.setEmployeeId(employeeId);
 		employee.setSalary(salary);
 		EMPLOYEE_CONTROL.updateEmployee(employeeId, employee);
 	}
@@ -151,18 +139,21 @@ public class EmployeeMain {
 		String phoneNumber = EmployeeInformation.employeePhoneNumber();
 		Employee employee = new Employee();
 		
+		employee.setEmployeeId(employeeId);
 		employee.setPhoneNumber(phoneNumber);
 		EMPLOYEE_CONTROL.updateEmployee(employeeId, employee);
 	}
 
 	/**
 	 * Updating employee joining date by using employee id.
+	 * @throws ParseException 
 	 */
 	private static void updateEmployeeJoiningDate() {
 		int employeeId = EmployeeInformation.employeeId();
 		Date date = EmployeeInformation.employeeJoiningDate();
 		Employee employee = new Employee();
 		
+		employee.setEmployeeId(employeeId);
 		employee.setDate(date);
 		EMPLOYEE_CONTROL.updateEmployee(employeeId, employee);
 	}

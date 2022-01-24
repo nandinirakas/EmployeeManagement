@@ -2,38 +2,42 @@ package com.employee.service;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 import com.employee.model.Employee;
 
 /**
  * Implementation of the methods that are given in interface.
- * Created a linked hashmap collection for storing details for storing in order and better performance.
+ * Created a linked hashmap collection for storing details to maintain order and better performance.
  */
 public class EmployeeMangementImpl implements EmployeeManagement {
-	private final LinkedHashMap<Integer, Employee> EMPLOYEE_DETAILS = new LinkedHashMap<Integer, Employee>();
+	private final Map<Integer, Employee> EMPLOYEE_DETAILS = new LinkedHashMap<>();
 
 	/**
-	 * Adding a new employee. Here employee id is set to key and
-	 * other details like employee name, salary, phone number and joining date are
-	 * jointly stored in an object named employee.
+	 * Adding a new employee.
 	 * 
 	 * @param employeeId 
 	 * @param employee Object contains name, salary, phone number and date
 	 */
 	public void addNewEmployee(int employeeId, Employee employee) {
+
+		if (EMPLOYEE_DETAILS.containsKey(employeeId)) {
+            System.out.println("The given Id already present");
+        } else {
 		EMPLOYEE_DETAILS.put(employeeId, employee);
+        }
 	}
 
 	/**
-	 * Showing all employee details that are stored in the list by using iterator.
+	 * Showing all employee details that are stored in the list by using for each.
 	 * Entry will give both key and value.
 	 */
 	public void viewEmployees() {
-		Iterator<Entry<Integer, Employee>> iterator = EMPLOYEE_DETAILS.entrySet().iterator();
-
-		while (iterator.hasNext()) {
-			Entry<Integer, Employee> entry = iterator.next();
-			System.out.println(entry.getKey() + " " + entry.getValue());
+		
+		for (Entry<Integer, Employee> entry : EMPLOYEE_DETAILS.entrySet()) {
+		    Integer key = entry.getKey();
+		    Object value = entry.getValue();
+		   	System.out.println(String.format("%s %s", String.valueOf(key), value));
 		}
 	}
 
@@ -44,20 +48,11 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 	 * @param employeeId
 	 */
 	public void deleteEmployee(int employeeId) {
-		boolean employeeIdFound = false;
-		Iterator<Integer> iterator = EMPLOYEE_DETAILS.keySet().iterator();
+		boolean employeeIdDelete = false;
+		EMPLOYEE_DETAILS.remove(employeeId);
+		employeeIdDelete = true;
 
-		while (iterator.hasNext()) {
-			int employeeIdValue = iterator.next();
-
-			if (employeeIdValue == employeeId) {
-				EMPLOYEE_DETAILS.remove(employeeId);
-				employeeIdFound = true;
-				break;
-			}
-		}
-
-		if (!employeeIdFound) {
+		if (!employeeIdDelete) {
 			System.out.println("Employee id not found");
 		} else {
 			System.out.println("Record deleted successfully");
@@ -65,14 +60,13 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 	}
 
 	/**
-	 * Replacing each employee details and also for replacing all
-	 * values at a time based on employee id.
+	 * Replacing each employee details based on employee id.
 	 * 
 	 * @param employeeId
 	 * @param employee
 	 */
 	public void updateEmployee(int employeeId, Employee employee) {
-		boolean employeeIdFound = false;
+		boolean employeeIdUpdate = false;
 		Iterator<Integer> iterator = EMPLOYEE_DETAILS.keySet().iterator();
 
 		while (iterator.hasNext()) {
@@ -81,44 +75,27 @@ public class EmployeeMangementImpl implements EmployeeManagement {
 
 			if (employeeIdKey == employeeId) {
 				
-				/**
-				 * In first if condition, except name all datas are kept as null. So that when name is entered in object it get 
-				 * satisfied and enter into the loop. The same operation is done for all else if and else conditions.
-				 */
-				if ((employee.getSalary() == 0) && (employee.getPhoneNumber() == null)
-						&& (employee.getDate() == null)) { 
+				if (employee.getEmployeeName() != null) { 
 					employeeData.setEmployeeName(employee.getEmployeeName());
-					employeeIdFound = true;
+					employeeIdUpdate = true;
 					break;
-				} else if ((employee.getPhoneNumber() == null) && (employee.getEmployeeName() == null)
-						&& (employee.getDate() == null)) {
+				} else if (employee.getSalary() != 0) {
 					employeeData.setSalary(employee.getSalary());
-					employeeIdFound = true;
+					employeeIdUpdate = true;
 					break;
-				} else if ((employee.getSalary() == 0) && (employee.getEmployeeName() == null)
-						&& (employee.getDate() == null)) {
+				} else if (employee.getPhoneNumber() != null) {
 					employeeData.setPhoneNumber(employee.getPhoneNumber());
-					employeeIdFound = true;
+					employeeIdUpdate = true;
 					break;
-				} else if ((employee.getSalary() == 0) && (employee.getEmployeeName() == null)
-						&& (employee.getPhoneNumber() == null)) {
+				} else if (employee.getDate() != null) {
 					employeeData.setDate(employee.getDate());
-					employeeIdFound = true;
-					break;
-				} else {
-					employeeData.setEmployeeName(employee.getEmployeeName());
-					employeeData.setSalary(employee.getSalary()); // update all details
-					employeeData.setPhoneNumber(employee.getPhoneNumber());
-					employeeData.setDate(employee.getDate());
-
-					EMPLOYEE_DETAILS.put(employeeIdKey, employeeData);
-					employeeIdFound = true;
+					employeeIdUpdate = true;
 					break;
 				}
 			}
 		}
 
-		if (!employeeIdFound) {
+		if (!employeeIdUpdate) {
 			System.out.println("Employee id not found");
 		} else {
 			System.out.println("Record updated successfully");

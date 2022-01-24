@@ -1,8 +1,8 @@
 package com.employee.view;
 
+import java.text.ParseException;
 import java.util.Date;
 import com.employee.main.EmployeeMain;
-import com.employee.service.EmployeeManagementValidation;
 
 /**
  * Get inputs from users using scanners. The input data
@@ -46,6 +46,7 @@ public class EmployeeInformation {
 
 	/**
 	 * For getting employee joining date
+	 * @throws ParseException 
 	 */
 	public static Date employeeJoiningDate() {
 		System.out.println("Enter employee joining date(dd-MM-yyyy):"); 
